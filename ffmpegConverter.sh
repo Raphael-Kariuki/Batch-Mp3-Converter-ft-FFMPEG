@@ -6,6 +6,9 @@ printf  "%+31s %-14s %-1s\n" '|'  'with ffmpeg'    '|'
 printf "%+35s %-6s %-4s\n" ------ ---- -----
 
 read -p "Continue ? " answer
+cat << here
+options: y/Y--continue to converter
+          ?--continue to advancedMode(enRoute)
 
 defaultTextFilePath=./convert.txt
 
@@ -34,7 +37,7 @@ else
 exit
 fi
 |'#what I wanted was to include an instance wherby the user has a file
-# list of relative paths to files to convert, but thats too much a hustle, append or recreate.Simple.haha
+# list of relative paths to files to convert,for now append or recreate.Simple.haha
 elif [ $answer = "?" ]
 
 then
@@ -57,4 +60,4 @@ convertLine=$(echo $New_LINE | cut -f1 -d ".")
 echo -e  \"$New_LINE\" $filePath2\"$convertLine.mp3\" |xargs ffmpeg -i 
 done < $TextFilePath
 exit
-fi
+fi'
